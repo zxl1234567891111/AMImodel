@@ -9,3 +9,82 @@ Among all evaluated models, the Light Gradient Boosting Machine (LightGBM) achie
 
 In addition to binary diagnosis, this framework incorporates a risk stratification strategy designed to further analyze cases predicted as negative by the classification model. By integrating SHAP-based explanations, potentially high-risk individuals can be identified among negative predictions, thereby reducing the likelihood of missed diagnoses. Overall, this repository aims to support reproducible research and provide a transparent, interpretable, and extensible framework for assistive AMI diagnosis and risk stratification.
 
+## Repository Structure
+
+├── Data preprocessing.ipynb
+│   Performs data preprocessing procedures, including data cleaning,
+│   feature preparation, and normalization prior to model development.
+
+├── Model Training.ipynb
+│   Implements the training and evaluation of multiple machine learning
+│   models for acute myocardial infarction (AMI) diagnosis, including
+│   performance comparison across algorithms.
+
+├── SHAP.ipynb
+│   Conducts SHAP-based model interpretability analysis to quantify the
+│   contribution of individual clinical and biochemical features to model
+│   predictions.
+
+├── Heatmap.ipynb
+│   Generates correlation heatmaps to visualize relationships among
+│   clinical and biochemical features used in the study.
+
+├── ROC_curves_comparison.png
+│   Visualization of ROC curves comparing diagnostic performance across
+│   different machine learning models.
+
+├── calibration_curves_with_brier_scores.png
+│   Calibration curves with corresponding Brier scores to assess model
+│   probability calibration performance.
+
+├── Risk Stratification on Test Set.png
+│   Visualization of the proposed risk stratification results on the test set.
+
+├── Risk Stratification on Validation Set.png
+│   Visualization of the proposed risk stratification results on the
+│   independent validation set.
+
+├── SHAP_bar_plot.png
+│   SHAP feature importance bar plot showing global feature contributions.
+
+├── SHAP_summary_plot.png
+│   SHAP summary plot illustrating the distribution and magnitude of
+│   feature impacts on model predictions.
+
+├── SHAP_waterfall_sample_15.png
+│   SHAP waterfall plot providing a local explanation for an individual
+│   sample prediction.
+
+├── SHAP_waterfall_sample_55.png
+│   SHAP waterfall plot providing a local explanation for another
+│   representative sample prediction.
+
+└── README.md
+   Documentation describing the project overview, environment setup,
+   repository structure, and usage instructions.
+
+## 3. Environment & Dependencies
+
+All experiments were conducted using Python in a standard scientific
+computing environment. The code is platform-independent and can be
+executed on Windows, Linux, or macOS systems.
+
+### Python Version
+- Python 3.8 or later
+
+### Required Libraries
+The main Python packages required to run the notebooks include:
+- numpy
+- pandas
+- scikit-learn
+- lightgbm
+- shap
+- matplotlib
+- seaborn
+
+### Installation
+It is recommended to create a virtual environment before installing
+dependencies. The required packages can be installed using:
+
+```bash
+pip install numpy pandas scikit-learn lightgbm shap matplotlib seaborn
