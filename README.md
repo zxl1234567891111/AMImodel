@@ -12,8 +12,12 @@ In addition to binary diagnosis, this framework incorporates a risk stratificati
 ## Repository Structure
 
 ├── Data preprocessing.ipynb
-│   Performs data preprocessing procedures, including data cleaning,
-│   feature preparation, and normalization prior to model development.
+│   Performs dataset preparation including loading the raw clinical data,
+│   stratified splitting of the dataset into training, validation, and test
+│   sets with a 6:2:2 ratio, and class imbalance handling on the training set
+│   using SMOTE. The processed datasets are saved for subsequent model
+│   training and evaluation.
+
 
 ├── Model Training.ipynb
 │   Implements the training and evaluation of multiple machine learning
