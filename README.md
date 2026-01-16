@@ -21,10 +21,10 @@ In addition to binary diagnosis, this framework incorporates a risk stratificati
 │   Computes and visualizes the feature correlation matrix to assess
 │   inter-feature relationships.
 
-├── SHAP.ipynb
-│   Conducts SHAP-based model interpretability analysis to quantify the
-│   contribution of individual clinical and biochemical features to model
-│   predictions.
+├── Model Training.ipynb
+│   Conducts feature selection, hyperparameter tuning, model training, and
+│   performance evaluation across multiple machine learning classifiers.
+
 
 ├── Heatmap.ipynb
 │   Generates correlation heatmaps to visualize relationships among
