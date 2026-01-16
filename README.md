@@ -9,6 +9,14 @@ Among all evaluated models, the Light Gradient Boosting Machine (LightGBM) achie
 
 In addition to binary diagnosis, this framework incorporates a risk stratification strategy designed to further analyze cases predicted as negative by the classification model. By integrating SHAP-based explanations, potentially high-risk individuals can be identified among negative predictions, thereby reducing the likelihood of missed diagnoses. Overall, this repository aims to support reproducible research and provide a transparent, interpretable, and extensible framework for assistive AMI diagnosis and risk stratification.
 
+## 2. Data Description
+
+The dataset used in this study consists of 4087 anonymized electronic medical records collected from Shanxi Cardiovascular Hospital. Each record corresponds to an individual presenting for clinical evaluation and includes both AMI-positive and AMI-negative cases.
+
+A total of 31 features were extracted, comprising routine demographic information, clinical measurements, and blood-based cardiac biomarkers. The target label indicates whether the patient was diagnosed with acute myocardial infarction (AMI).
+
+To protect patient privacy, the raw clinical data are not publicly released. The repository provides all data preprocessing, model training, and evaluation scripts to ensure reproducibility of the proposed framework when applied to compatible datasets.
+
 ## Repository Structure
 
 ├── Data preprocessing.ipynb
@@ -26,49 +34,42 @@ In addition to binary diagnosis, this framework incorporates a risk stratificati
 │   performance evaluation across multiple machine learning classifiers.
 
 
-├── Heatmap.ipynb
-│   Generates correlation heatmaps to visualize relationships among
-│   clinical and biochemical features used in the study.
-
-├── ROC_curves_comparison.png
-│   Visualization of ROC curves comparing diagnostic performance across
-│   different machine learning models.
-
-├── calibration_curves_with_brier_scores.png
-│   Calibration curves with corresponding Brier scores to assess model
-│   probability calibration performance.
-
-├── Risk Stratification on Test Set.png
-│   Visualization of the proposed risk stratification results on the test set.
-
-├── Risk Stratification on Validation Set.png
-│   Visualization of the proposed risk stratification results on the
-│   independent validation set.
-
-├── SHAP_bar_plot.png
-│   SHAP feature importance bar plot showing global feature contributions.
-
-├── SHAP_summary_plot.png
-│   SHAP summary plot illustrating the distribution and magnitude of
-│   feature impacts on model predictions.
-
-├── SHAP_waterfall_sample_15.png
-│   SHAP waterfall plot providing a local explanation for an individual
-│   sample prediction.
-
-├── SHAP_waterfall_sample_55.png
-│   SHAP waterfall plot providing a local explanation for another
-│   representative sample prediction.
+├── SHAP.ipynb
+│   Conducts SHAP-based model interpretation and secondary risk stratification
+│   analysis for the optimized LightGBM classifier.
 
 └── README.md
    Documentation describing the project overview, environment setup,
    repository structure, and usage instructions.
+
+## 4. Workflow and Usage
+
+The recommended workflow for reproducing the experiments in this repository is as follows:
+
+1. **Data preprocessing**  
+   Run `Data preprocessing.ipynb` to perform stratified dataset splitting (6:2:2) and SMOTE-based class imbalance correction on the training set.
+
+2. **Exploratory correlation analysis**  
+   Use `Heatmap.ipynb` to visualize inter-feature correlations and assess potential multicollinearity.
+
+3. **Model training and evaluation**  
+   Execute `Model Training.ipynb` to conduct genetic algorithm–based feature selection, hyperparameter optimization, and performance evaluation across multiple machine learning models.
+
+4. **Model interpretation and risk stratification**  
+   Run `SHAP.ipynb` to perform SHAP-based interpretability analysis and secondary risk stratification for negative predictions.
+
+All intermediate datasets and figures are automatically saved during execution.
+
 
 ## 3. Environment & Dependencies
 
 All experiments were conducted using Python in a standard scientific
 computing environment. The code is platform-independent and can be
 executed on Windows, Linux, or macOS systems.
+
+### Hardware Configuration (Reference)
+
+Performance evaluation was conducted on a standard PC platform equipped with an Intel(R) Core(TM) i7-10750H CPU @ 2.60 GHz (6 physical cores, 12 threads, 64-bit architecture). The optimized LightGBM model exhibits low storage requirements and fast inference speed, indicating potential feasibility for deployment in resource-constrained or portable clinical settings.
 
 ### Python Version
 - Python 3.8 or later
@@ -89,3 +90,4 @@ dependencies. The required packages can be installed using:
 
 ```bash
 pip install numpy pandas scikit-learn lightgbm shap matplotlib seaborn
+
