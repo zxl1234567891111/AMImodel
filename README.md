@@ -17,10 +17,9 @@ In addition to binary diagnosis, this framework incorporates a risk stratificati
 │   with outputs saved for downstream model training and testing.
 
 
-├── Model Training.ipynb
-│   Implements the training and evaluation of multiple machine learning
-│   models for acute myocardial infarction (AMI) diagnosis, including
-│   performance comparison across algorithms.
+├── Heatmap.ipynb
+│   Computes and visualizes the feature correlation matrix to assess
+│   inter-feature relationships.
 
 ├── SHAP.ipynb
 │   Conducts SHAP-based model interpretability analysis to quantify the
